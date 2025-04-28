@@ -1,0 +1,173 @@
+/* Global resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  font: 20px/1 serif;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navbar: Mobile-first (vertical layout) */
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column; /* Vertical layout for mobile */
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.navbar li {
+  margin: 1rem 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #ddd;
+}
+
+.hamburger {
+  display: block;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2000; /* Ensures the hamburger is on top of other elements */
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* Fullscreen home section with animated background */
+.home-section {
+  position: relative;
+  height: 100vh; /* Full screen height */
+  background: url("https://via.placeholder.com/1920x1080") center/cover
+    no-repeat;
+  animation: hypnoticBackground 10s infinite alternate; /* Animated effect */
+  z-index: 500; /* Ensure background is below text */
+}
+
+.home-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 2s forwards; /* Fade-in effect */
+  z-index: 600; /* Ensure text is above the background */
+}
+section {
+  width: 100vw;
+}
+
+/* Hypnotic animation for background */
+@keyframes hypnoticBackground {
+  0% {
+    transform: scale(1);
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(1.1);
+    filter: blur(5px);
+  }
+}
+
+/* Fade-in effect for text */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.section {
+  height: 100vh;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: lightgray;
+  margin-top: 80px; /* To avoid navbar covering content */
+}
+
+#about {
+  background: lightgreen;
+}
+
+#projects {
+  background: lightyellow;
+}
+
+#contact {
+  background: lightcoral;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Show the menu when it’s open */
+.navbar ul.active {
+  display: block;
+}
+
+/* Responsive layout for larger screens (tablets and laptops) */
+@media (min-width: 768px) {
+  .navbar ul {
+    flex-direction: row; /* Switch to horizontal navbar */
+    justify-content: space-around;
+    display: flex; /* Default to horizontal layout */
+  }
+
+  .navbar li {
+    margin: 0 1rem; /* Spacing between items on larger screens */
+  }
+
+  .section {
+    padding: 5rem;
+    margin-top: 120px; /* Increase margin on large screens */
+  }
+
+  .section h1 {
+    font-size: 3rem;
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger on larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .section h1 {
+    font-size: 4rem;
+  }
+}
