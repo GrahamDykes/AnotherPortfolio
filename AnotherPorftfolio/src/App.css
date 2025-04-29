@@ -27,6 +27,7 @@ body {
 }
 
 .navbar ul {
+  width: 100vw;
   list-style: none;
   display: flex;
   flex-direction: column; /* Vertical layout for mobile */
@@ -39,7 +40,7 @@ body {
 }
 
 .navbar a {
-  color: white;
+  color: chartreuse;
   text-decoration: none;
   font-weight: bold;
 }
@@ -83,10 +84,14 @@ canvas {
   animation: fadeIn 2s forwards; /* Fade-in effect */
   z-index: 600; /* Ensure text is above the background */
 }
+
 section {
   width: 100vw;
 }
 
+a {
+  color: chartreuse;
+}
 /* Hypnotic animation for background */
 @keyframes hypnoticBackground {
   0% {
@@ -143,6 +148,7 @@ html {
 /* Responsive layout for larger screens (tablets and laptops) */
 @media (min-width: 768px) {
   .navbar ul {
+    width: 100vw;
     flex-direction: row; /* Switch to horizontal navbar */
     justify-content: space-around;
     display: flex; /* Default to horizontal layout */
